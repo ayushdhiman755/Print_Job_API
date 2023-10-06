@@ -1,21 +1,45 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    userName: {
-      type: String,
-      require: true,
-      min: 3,
-    },
     email: {
       type: String,
       require: true,
       unique: true,
     },
-    password: {
+    phone: {
       type: String,
       require: true,
-      min: 6,
+      unique: true,
+    },
+    location: {
+      type: Array,
+      require: true,
+      require: true,
+    },
+    jobs: {
+      type: Array,
+      default: [],
+    },
+    deliveredJobs: {
+      type: Array,
+      default: [],
+    },
+    city: {
+      type: String,
+      require: true,
+    },
+    country: {
+      type: String,
+      default: "India",
+    },
+    state: {
+      type: String,
+      require: true,
+    },
+    PostalCode: {
+      type: String,
+      require: true,
     },
     profilePicture: {
       type: String,
@@ -24,4 +48,6 @@ const UserSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-module.exports=mongoose.model("User",UserSchema)
+
+const User = mongoose.model("User", UserSchema);
+export default User;
