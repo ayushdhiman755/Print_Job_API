@@ -3,7 +3,7 @@
 import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
-import helmet from "helmet";
+// import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import multer from "multer";
@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
 
 dotenv.config();
 app.use(express.json()); //for parsing the body
-app.use(helmet()); //for securing headers
+// app.use(helmet()); //for securing headers
 app.use(morgan("dev")); //for logging the request on console
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
